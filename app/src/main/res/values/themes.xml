@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.ClubDelPadrinoClient" parent="Base.Theme.ClubDelPadrinoClient" />
+
+    <style name="Theme.ClubDelPadrinoClient.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ClubDelPadrinoClient.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ClubDelPadrinoClient.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

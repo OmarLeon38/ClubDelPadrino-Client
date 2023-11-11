@@ -1,8 +1,10 @@
-package com.upao.cliente.clubdelpadrino_client;
+package com.upao.cliente.clubdelpadrino_client.activity;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.upao.cliente.clubdelpadrino_client.R;
 
 public class MainActivity extends AppCompatActivity {
 
