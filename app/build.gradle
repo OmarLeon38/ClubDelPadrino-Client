@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.upao.cliente.clubdelpadrino_client'
-    compileSdk 33
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.upao.cliente.clubdelpadrino_client"
         minSdk 26
-        targetSdk 33
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
