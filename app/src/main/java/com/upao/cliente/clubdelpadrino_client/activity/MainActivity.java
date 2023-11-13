@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(view -> {
             viewModel.login(edtMail.getText().toString(), edtPassword   .getText().toString()).observe(this, usuarioGenericResponse -> {
                 if (usuarioGenericResponse.getRpta() == 1){
-                    Toast.makeText(this, usuarioGenericResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, usuarioGenericResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    toastOk(usuarioGenericResponse.getMessage());
                     Usuario u = usuarioGenericResponse.getBody();
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
                     SharedPreferences.Editor editor = preferences.edit();
@@ -68,9 +73,35 @@ public class MainActivity extends AppCompatActivity {
                     edtPassword.setText("");
                     startActivity(new Intent(this, InicioActivity.class));
                 }else{
-                    Toast.makeText(this, "Ocurrió un error " + usuarioGenericResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    toastNoOk(usuarioGenericResponse.getMessage());
                 }
             });
         });
+    }
+
+    public void toastOk(String msg){
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_ok));
+        TextView txtMensaje = view.findViewById(R.id.txtMensajeToastOk);
+        txtMensaje.setText(msg);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 200);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(view);
+        toast.show();
+    }
+
+    public void toastNoOk(String msg){
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast_no_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_no_ok));
+        TextView txtMensaje = view.findViewById(R.id.txtMensajeToastNoOk);
+        txtMensaje.setText(msg);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 200);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(view);
+        toast.show();
     }
 }
