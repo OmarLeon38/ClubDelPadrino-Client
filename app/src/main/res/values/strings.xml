@@ -3,7 +3,7 @@
     <string name="label_usuario">Correo Electrónico</string>
     <string name="label_password">Contraseña</string>
     <string name="label_start_session">Iniciar Sesión</string>
-    <string name="label_nuevoUser"><u>Si no tienes una cuenta, regístrate ahora</u></string>
+    <string name="label_nuevoUser">Si no tienes una cuenta, regístrate ahora</string>
     <string name="label_olvide_password">¿Olvidaste tu contraseña?</string>
     <string name="label_bienvenida">Bienvenido(a), inicia sesión para continuar</string>
     <string name="title_activity_inicio">InicioActivity</string>
