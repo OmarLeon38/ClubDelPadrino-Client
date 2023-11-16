@@ -131,6 +131,6 @@ public class Cliente {
 
     public String getNombreCompletoCiente(){
         return this.nombres != null && this.apellidoPaterno != null && this.apellidoMaterno != null ?
-                this.nombres + " " + this.apellidoPaterno + " " + this.apellidoMaterno: "-----";
+                this.nombres + " " + this.apellidoPaterno + " " + this.apellidoMaterno: "-------";
     }
 }

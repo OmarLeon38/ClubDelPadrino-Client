@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -18,8 +19,21 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.squareup.picasso.OkHttp3Downloader;
+import com.squareup.picasso.Picasso;
 import com.upao.cliente.clubdelpadrino_client.R;
+import com.upao.cliente.clubdelpadrino_client.api.ConfigApi;
 import com.upao.cliente.clubdelpadrino_client.databinding.ActivityInicioBinding;
+import com.upao.cliente.clubdelpadrino_client.entity.service.Usuario;
+import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
+import com.upao.cliente.clubdelpadrino_client.utils.TimeSerializer;
+
+import java.sql.Date;
+import java.sql.Time;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -69,6 +83,37 @@ public class InicioActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadData();
+    }
+
+    private void loadData() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        final Gson g = new GsonBuilder()
+                .registerTypeAdapter(Date.class, new DateSerializer())
+                .registerTypeAdapter(Time.class, new TimeSerializer())
+                .create();
+        String usuarioJson = sp.getString("UsuarioJson", null);
+        if (usuarioJson != null){
+            final Usuario u = g.fromJson(usuarioJson, Usuario.class);
+            final View vistaHeader = binding.navView.getHeaderView(0);
+            final TextView tvNombre = vistaHeader.findViewById(R.id.textViewNombre), tvCorreo = vistaHeader.findViewById(R.id.textViewCorreo);
+            final CircleImageView imgFoto = vistaHeader.findViewById(R.id.imgFotoPerfil);
+
+            tvNombre.setText(u.getCliente().getNombreCompletoCiente());
+            tvCorreo.setText(u.getEmail());
+            String url = ConfigApi.baseUrlE + "/api/documento/download/" + u.getCliente().getFoto().getFileName();
+            final Picasso picasso = new Picasso.Builder(this)
+                    .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
+                    .build();
+            picasso.load(url)
+                    .error(R.drawable.perfil_vacio)
+                    .into(imgFoto);
+        }
     }
 
     private void logout() {
