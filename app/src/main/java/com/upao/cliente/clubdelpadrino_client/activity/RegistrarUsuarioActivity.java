@@ -397,7 +397,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                                 this.usuarioViewModel.save(u).observe(this, uResponse -> {
                                     if (uResponse.getRpta() == 1) {
                                         successMessage("Su información ha sido guardada con éxito en el sistema.");
-                                        this.finish();
                                     } else {
                                         toastIncorrecto("No se han podido guardar los datos, intentelo nuevamente");
                                     }

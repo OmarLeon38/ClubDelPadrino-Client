@@ -178,7 +178,18 @@ public class MainActivity extends AppCompatActivity {
         } else {
             txtInputPassword.setErrorEnabled(false);
         }
-
         return retorno;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String pref = preferences.getString("UsuarioJson", "");
+        if (!pref.equals("")){
+            toastOk("¡Bienvenido nuevamente!");
+            this.startActivity(new Intent(this, InicioActivity.class));
+            this.overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        }
     }
 }
