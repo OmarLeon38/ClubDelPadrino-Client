@@ -17,4 +17,72 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Mis Compras</string>
     <string name="menu_slideshow">Configuración</string>
+
+    <string-array name="tipoDoc">
+        <item>DNI</item>
+        <item>RUC</item>
+        <item>CARNET EXTRANJERIA</item>
+        <item>PASAPORTE</item>
+    </string-array>
+
+    <string-array name="departamentos">
+        <item>Amazonas</item>
+        <item>Áncash</item>
+        <item>Apurímac</item>
+        <item>Arequipa</item>
+        <item>Ayacucho</item>
+        <item>Cajamarca</item>
+        <item>Callao</item>
+        <item>Cusco</item>
+        <item>Huancavelica</item>
+        <item>Huánuco</item>
+        <item>Ica</item>
+        <item>Junín</item>
+        <item>La Libertad</item>
+        <item>Lambayeque</item>
+        <item>Lima Metropolitana</item>
+        <item>Lima Provincias</item>
+        <item>Loreto</item>
+        <item>Madre de Dios</item>
+        <item>Moquegua</item>
+        <item>Pasco</item>
+        <item>Piura</item>
+        <item>Puno</item>
+        <item>San Martín</item>
+        <item>Tacna</item>
+        <item>Tumbes</item>
+        <item>Ucayali</item>
+    </string-array>
+
+    <string-array name="provincias">
+        <item>Ascope</item>
+        <item>Bolívar</item>
+        <item>Chepén</item>
+        <item>Gran Chimú</item>
+        <item>Julcán</item>
+        <item>Otuzco</item>
+        <item>Pacasmayo</item>
+        <item>Pataz</item>
+        <item>Sánchez Carrión</item>
+        <item>Santiago de Chuco</item>
+        <item>Trujillo</item>
+        <item>Virú</item>
+    </string-array>
+
+    <string-array name="distritos">
+        <item>El Porvenir</item>
+        <item>Florencia de Mora</item>
+        <item>Huanchaco</item>
+        <item>La Esperanza</item>
+        <item>Laredo</item>
+        <item>Moche</item>
+        <item>Poroto</item>
+        <item>Salaverry</item>
+        <item>Simbal</item>
+        <item>Trujillo</item>
+        <item>Víctor Larco Herrera</item>
+    </string-array>
+
+
+
 </resources>

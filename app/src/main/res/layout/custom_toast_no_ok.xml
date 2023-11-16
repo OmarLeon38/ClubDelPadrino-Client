@@ -25,7 +25,7 @@
         android:fontFamily="@font/san_francisco"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Error: Credenciales incorrectas"
+        android:text="Lo sentimos, ocurrió un error"
         android:textColor="#fff"
         android:textSize="16sp"
         android:textStyle="bold"/>

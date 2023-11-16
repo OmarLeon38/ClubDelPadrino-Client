@@ -26,6 +26,13 @@ public class Cliente {
 
     private Documento foto;
 
+    public Cliente() {
+    }
+
+    public Cliente(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
