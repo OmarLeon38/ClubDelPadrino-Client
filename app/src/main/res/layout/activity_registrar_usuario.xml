@@ -145,6 +145,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputNameUser"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Ingrese sus nombres"
@@ -167,6 +169,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputApellidoPaternoU"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="10dp"
@@ -185,6 +189,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputApellidoMaternoU"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -208,6 +214,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputTipoDoc"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="10dp"
@@ -228,6 +236,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputNumeroDocU"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -252,6 +262,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputDepartamento"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="10dp"
@@ -272,6 +284,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputProvincia"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -297,6 +311,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputDistrito"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="10dp"
@@ -317,6 +333,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputTelefonoU"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -341,6 +359,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputDireccionU"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dirección"
@@ -414,6 +434,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputEmailUser"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Ingrese su correo electrónico"
@@ -431,6 +453,8 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/txtInputPasswordUser"
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    app:boxStrokeColor="@color/dorado"
+                                    app:boxStrokeWidth="2dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Ingrese su contraseña"
