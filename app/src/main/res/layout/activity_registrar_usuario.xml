@@ -57,7 +57,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/san_francisco"
+                            android:fontFamily="@font/open_sans"
                             android:text="Imagen de perfil"
                             android:textAlignment="center"
                             android:textColor="@color/black"
@@ -82,7 +82,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="8dp"
                             android:drawableEnd="@drawable/ic_add"
-                            android:fontFamily="@font/san_francisco"
+                            android:fontFamily="@font/open_sans"
                             android:text="SUBIR IMAGEN"
                             android:textColor="@color/white"
                             android:backgroundTint="@color/dorado"/>
@@ -121,7 +121,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/san_francisco"
+                                android:fontFamily="@font/open_sans"
                                 android:text="Ingresa tus Datos Personales"
                                 android:textAlignment="center"
                                 android:textSize="18sp"
@@ -156,7 +156,7 @@
                                         android:id="@+id/edtNameUser"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
@@ -182,7 +182,7 @@
                                         android:id="@+id/edtApellidoPaternoU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -201,7 +201,7 @@
                                         android:id="@+id/edtApellidoMaternoU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
@@ -228,7 +228,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:clickable="true"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="none"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -248,7 +248,7 @@
                                         android:id="@+id/edtNumDocU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="number"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -276,7 +276,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:clickable="true"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="none"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -297,7 +297,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:clickable="true"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="none"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -325,7 +325,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:clickable="true"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="none"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -345,7 +345,7 @@
                                         android:id="@+id/edtTelefonoU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="number"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -370,7 +370,7 @@
                                         android:id="@+id/edtDireccionU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
@@ -410,7 +410,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/san_francisco"
+                                android:fontFamily="@font/open_sans"
                                 android:text="Ingresa tus Credenciales"
                                 android:textAlignment="center"
                                 android:textSize="18sp"
@@ -445,7 +445,7 @@
                                         android:id="@+id/edtEmailUser"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="textEmailAddress"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -464,7 +464,7 @@
                                         android:id="@+id/edtPasswordUser"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/san_francisco"
+                                        android:fontFamily="@font/open_sans"
                                         android:inputType="textPassword"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -476,7 +476,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginTop="5dp"
                                     android:drawableEnd="@drawable/ic_save"
-                                    android:fontFamily="@font/san_francisco"
+                                    android:fontFamily="@font/open_sans"
                                     android:text="GUARDAR DATOS"
                                     android:textColor="@color/white"
                                     android:backgroundTint="@color/dorado"/>
