@@ -387,7 +387,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                         c.getFoto().setId(response.getBody().getId());
                         this.clienteViewModel.guardarCliente(c).observe(this, cResponse -> {
                             if (cResponse.getRpta() == 1) {
-                                Toast.makeText(this, response.getMessage() + ", regitrando credenciales", Toast.LENGTH_SHORT).show();
                                 int idc = cResponse.getBody().getId();
                                 Usuario u = new Usuario();
                                 u.setEmail(edtEmailUser.getText().toString());
@@ -396,7 +395,8 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                                 u.setCliente(new Cliente(idc));
                                 this.usuarioViewModel.save(u).observe(this, uResponse -> {
                                     if (uResponse.getRpta() == 1) {
-                                        successMessage("Su información ha sido guardada con éxito en el sistema.");
+                                        toasCorrecto("Su información fue almacenada en el sistema");
+                                        finish();
                                     } else {
                                         toastIncorrecto("No se han podido guardar los datos, intentelo nuevamente");
                                     }
@@ -563,6 +563,19 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         LayoutInflater layoutInflater = getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.custom_toast_no_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_no_ok));
         TextView txtMensaje = view.findViewById(R.id.txtMensajeToastNoOk);
+        txtMensaje.setText(msg);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 200);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(view);
+        toast.show();
+    }
+
+    public void toasCorrecto(String msg){
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_ok));
+        TextView txtMensaje = view.findViewById(R.id.txtMensajeToastOk);
         txtMensaje.setText(msg);
 
         Toast toast = new Toast(getApplicationContext());
