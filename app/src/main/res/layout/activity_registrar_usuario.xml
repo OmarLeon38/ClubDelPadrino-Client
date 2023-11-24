@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".activity.RegistrarUsuarioActivity">
 
@@ -103,6 +104,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:background="@color/white"
                         android:layout_height="wrap_content">
 
                         <LinearLayout
@@ -121,6 +123,7 @@
                                 android:fontFamily="@font/open_sans"
                                 android:text="Ingresa tus Datos Personales"
                                 android:textAlignment="center"
+                                android:textColor="@color/dorado"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -146,7 +149,9 @@
                                     app:boxStrokeWidth="2dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:textColorHint="@color/black"
                                     android:hint="Ingrese sus nombres"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_person">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -173,6 +178,8 @@
                                     android:layout_marginEnd="10dp"
                                     android:layout_weight="1"
                                     android:hint="Apellido Paterno"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_person">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -192,6 +199,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:hint="Apellido Materno"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_person">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -218,6 +227,8 @@
                                     android:layout_marginEnd="10dp"
                                     android:layout_weight="1"
                                     android:hint="Tipo Identificación"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_tipo_doc">
 
                                     <AutoCompleteTextView
@@ -239,6 +250,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:hint="Num. Identificación"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_documento">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -266,6 +279,8 @@
                                     android:layout_marginEnd="10dp"
                                     android:layout_weight="1"
                                     android:hint="Departamento"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_ubicacion">
 
                                     <AutoCompleteTextView
@@ -287,6 +302,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:hint="Provincia"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_ubicacion">
 
                                     <AutoCompleteTextView
@@ -315,6 +332,8 @@
                                     android:layout_marginEnd="10dp"
                                     android:layout_weight="1"
                                     android:hint="Distrito"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_ubicacion">
 
                                     <AutoCompleteTextView
@@ -336,6 +355,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:hint="Teléfono"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_phone">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -361,6 +382,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dirección"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_person_direccion">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -392,6 +415,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:background="@color/white"
                         android:layout_height="wrap_content">
 
                         <LinearLayout
@@ -410,6 +434,7 @@
                                 android:fontFamily="@font/open_sans"
                                 android:text="Ingresa tus Credenciales"
                                 android:textAlignment="center"
+                                android:textColor="@color/dorado"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -436,6 +461,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Ingrese su correo electrónico"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_email">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -455,6 +482,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Ingrese su contraseña"
+                                    android:textColorHint="@color/black"
+                                    app:startIconTint="@color/black"
                                     app:startIconDrawable="@drawable/ic_lock">
 
                                     <com.google.android.material.textfield.TextInputEditText

@@ -3,6 +3,7 @@ package com.upao.cliente.clubdelpadrino_client.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,6 +19,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -147,6 +149,20 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         txtInputDireccionU = findViewById(R.id.txtInputDireccionU);
         txtInputEmailUser = findViewById(R.id.txtInputEmailUser);
         txtInputPasswordUser = findViewById(R.id.txtInputPasswordUser);
+
+        //Toolbar
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         btnSubirImagen.setOnClickListener(v -> {
             this.cargarImagen();
@@ -581,5 +597,17 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(view);
         toast.show();
+    }
+
+    //Método para regresar a la actividad anterior en el Toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

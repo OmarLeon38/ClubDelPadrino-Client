@@ -18,8 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClubDelPadrinoClient"
+        android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activity.ListarProductoPorCategoriaActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.RegistrarUsuarioActivity"
             android:exported="false" />

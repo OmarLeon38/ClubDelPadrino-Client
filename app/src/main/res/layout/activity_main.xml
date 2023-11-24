@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activity.MainActivity">
     <LinearLayout
         android:id="@+id/linearParte1"
@@ -48,7 +49,9 @@
             app:boxStrokeWidth="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
             android:hint="@string/label_usuario"
+            app:startIconTint="@color/black"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -56,7 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/black"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,14 +72,17 @@
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
             android:hint="@string/label_password"
+            app:startIconTint="@color/black"
             app:startIconDrawable="@drawable/ic_lock">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/black"
                 android:inputType="textPassword"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -85,18 +92,18 @@
         android:layout_below="@+id/linearParte3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
+        android:gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp">
 
         <Button
             android:id="@+id/btnIniciarSesion"
-            android:layout_width="390dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/dorado"
             android:drawableEnd="@drawable/ic_login"
             android:drawableTint="#fff"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/open_sans"
             android:text="@string/label_start_session" />
     </LinearLayout>
     <LinearLayout
@@ -112,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="@color/dorado"
             android:gravity="center|center_horizontal"
@@ -132,7 +139,7 @@
             android:fontFamily="@font/open_sans"
             android:gravity="center|center_horizontal"
             android:text="@string/label_olvide_password"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </LinearLayout>
