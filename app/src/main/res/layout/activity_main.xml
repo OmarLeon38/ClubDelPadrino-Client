@@ -31,19 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <!--
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/open_sans"
-        android:gravity="center|center_horizontal"
-        android:text="@string/label_bienvenida"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    -->
-
     <LinearLayout
         android:id="@+id/linearParte3"
         android:orientation="vertical"
@@ -149,5 +136,4 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
 </RelativeLayout>

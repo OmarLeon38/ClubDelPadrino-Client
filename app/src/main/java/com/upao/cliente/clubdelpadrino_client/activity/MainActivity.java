@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 if (validar()) {
                     viewModel.login(edtMail.getText().toString(), edtPassword.getText().toString()).observe(this, usuarioGenericResponse -> {
                         if (usuarioGenericResponse.getRpta() == 1) {
-                            //Toast.makeText(this, usuarioGenericResponse.getMessage(), Toast.LENGTH_SHORT).show();
                             toastOk("¡Inicio de sesión exitoso!");
                             Usuario u = usuarioGenericResponse.getBody();
                             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/crdCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgCategoria"
+                android:layout_width="180dp"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/categoria_hamburguesa" />
+
+            <TextView
+                android:id="@+id/txtNombreCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgCategoria"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="Categoría 1"
+                android:textColor="@color/dorado"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

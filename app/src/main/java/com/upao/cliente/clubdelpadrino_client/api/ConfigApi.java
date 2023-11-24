@@ -22,7 +22,8 @@ public class ConfigApi {
 
     private static UsuarioApi usuarioApi;
     private static ClienteApi clienteApi;
-    private static DocumentoApi documentoApi;
+    private static FotoApi fotoApi;
+    private static CategoriaApi categoriaApi;
 
     static {
         initClient();
@@ -75,10 +76,17 @@ public class ConfigApi {
         return clienteApi;
     }
 
-    public static DocumentoApi getDocumentoApi(){
-        if (documentoApi == null){
-            documentoApi = retrofit.create(DocumentoApi.class);
+    public static FotoApi getFotoApi(){
+        if (fotoApi == null){
+            fotoApi = retrofit.create(FotoApi.class);
         }
-        return documentoApi;
+        return fotoApi;
+    }
+
+    public static CategoriaApi getCategoriaApi(){
+        if (categoriaApi == null){
+            categoriaApi = retrofit.create(CategoriaApi.class);
+        }
+        return categoriaApi;
     }
 }

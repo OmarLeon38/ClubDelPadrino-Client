@@ -2,7 +2,7 @@ package com.upao.cliente.clubdelpadrino_client.entity.service;
 
 import okhttp3.MultipartBody;
 
-public class Documento {
+public class Foto {
 
     private long id;
 
@@ -20,7 +20,7 @@ public class Documento {
 
     private MultipartBody.Part file;
 
-    public Documento() {
+    public Foto() {
         id = 0;
         nombre = "";
         fileName = "";

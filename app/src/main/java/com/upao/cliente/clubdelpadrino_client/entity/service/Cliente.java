@@ -24,7 +24,7 @@ public class Cliente {
 
     private String telefono;
 
-    private Documento foto;
+    private Foto foto;
 
     public Cliente() {
     }
@@ -97,11 +97,11 @@ public class Cliente {
         this.distrito = distrito;
     }
 
-    public Documento getFoto() {
+    public Foto getFoto() {
         return foto;
     }
 
-    public void setFoto(Documento foto) {
+    public void setFoto(Foto foto) {
         this.foto = foto;
     }
 

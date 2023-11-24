@@ -30,10 +30,10 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Cliente;
-import com.upao.cliente.clubdelpadrino_client.entity.service.Documento;
+import com.upao.cliente.clubdelpadrino_client.entity.service.Foto;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Usuario;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.ClienteViewModel;
-import com.upao.cliente.clubdelpadrino_client.viewmodel.DocumentoViewModel;
+import com.upao.cliente.clubdelpadrino_client.viewmodel.FotoViewModel;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.UsuarioViewModel;
 
 import java.io.File;
@@ -50,7 +50,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
     private File f;
     private ClienteViewModel clienteViewModel;
     private UsuarioViewModel usuarioViewModel;
-    private DocumentoViewModel documentoViewModel;
+    private FotoViewModel fotoViewModel;
     private Button btnSubirImagen, btnGuardarDatos;
     private CircleImageView imageUser;
     private AutoCompleteTextView dropdownTipoDoc, dropdownDepartamento, dropdownProvincia, dropdownDistrito;
@@ -90,7 +90,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         final ViewModelProvider vmp = new ViewModelProvider(this);
         this.clienteViewModel = vmp.get(ClienteViewModel.class);
         this.usuarioViewModel = vmp.get(UsuarioViewModel.class);
-        this.documentoViewModel = vmp.get(DocumentoViewModel.class);
+        this.fotoViewModel = vmp.get(FotoViewModel.class);
     }
 
     @Override
@@ -155,8 +155,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         btnGuardarDatos.setOnClickListener(v -> {
             this.guardarDatos();
         });
-
-        //QUITAR LOS TEXTOS DE VALIDACIÓN
 
         edtNameUser.addTextChangedListener(new TextWatcher() {
             @Override
@@ -381,9 +379,9 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
 
                 MultipartBody.Part part = MultipartBody.Part.createFormData("file", f.getName(), rb);
                 somedata = RequestBody.create("profilePh" + filename, MediaType.parse("text/plain"));
-                this.documentoViewModel.save(part, somedata).observe(this, response -> {
+                this.fotoViewModel.save(part, somedata).observe(this, response -> {
                     if (response.getRpta() == 1) {
-                        c.setFoto(new Documento());
+                        c.setFoto(new Foto());
                         c.getFoto().setId(response.getBody().getId());
                         this.clienteViewModel.guardarCliente(c).observe(this, cResponse -> {
                             if (cResponse.getRpta() == 1) {

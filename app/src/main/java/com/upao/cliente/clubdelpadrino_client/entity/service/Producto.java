@@ -1,18 +1,18 @@
 package com.upao.cliente.clubdelpadrino_client.entity.service;
 
-public class Plato {
+public class Producto {
 
     private int id;
 
     private String nombre;
 
-    private Documento foto;
+    private Foto foto;
 
     private Double precio;
 
     private int stock;
 
-    private String descripcionPlato;
+    private String descripcionProducto;
 
     private Categoria categoria;
 
@@ -36,11 +36,11 @@ public class Plato {
         this.nombre = nombre;
     }
 
-    public Documento getFoto() {
+    public Foto getFoto() {
         return foto;
     }
 
-    public void setFoto(Documento foto) {
+    public void setFoto(Foto foto) {
         this.foto = foto;
     }
 
@@ -60,12 +60,12 @@ public class Plato {
         this.stock = stock;
     }
 
-    public String getDescripcionPlatillo() {
-        return descripcionPlato;
+    public String getDescripcionProducto() {
+        return descripcionProducto;
     }
 
-    public void setDescripcionPlatillo(String descripcionPlatillo) {
-        this.descripcionPlato = descripcionPlatillo;
+    public void setDescripcionProducto(String descripcionProducto) {
+        this.descripcionProducto = descripcionProducto;
     }
 
     public Categoria getCategoria() {

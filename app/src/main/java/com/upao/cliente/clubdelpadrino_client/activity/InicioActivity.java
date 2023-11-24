@@ -57,8 +57,6 @@ public class InicioActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_inicio, R.id.nav_mis_compras, R.id.nav_configuracion)
                 .setOpenableLayout(drawer)
@@ -70,7 +68,6 @@ public class InicioActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.inicio, menu);
         return true;
     }
@@ -106,7 +103,7 @@ public class InicioActivity extends AppCompatActivity {
 
             tvNombre.setText(u.getCliente().getNombreCompletoCiente());
             tvCorreo.setText(u.getEmail());
-            String url = ConfigApi.baseUrlE + "/api/documento/download/" + u.getCliente().getFoto().getFileName();
+            String url = ConfigApi.baseUrlE + "/api/foto/download/" + u.getCliente().getFoto().getFileName();
             final Picasso picasso = new Picasso.Builder(this)
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
                     .build();
