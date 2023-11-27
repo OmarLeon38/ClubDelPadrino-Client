@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigApi {
     public static final String baseUrlE = "http://10.0.2.2:9090";
-    //public static final String ipOmarLeon = "http://192.168.1.11:9090";
+    public static final String ipOmarLeon = "http://192.168.1.11:9090";
     private static Retrofit retrofit;
     private static String token = "";
 
@@ -26,6 +26,7 @@ public class ConfigApi {
     private static FotoApi fotoApi;
     private static CategoriaApi categoriaApi;
     private static ProductoApi productoApi;
+    private static PedidoApi pedidoApi;
 
     static {
         initClient();
@@ -97,5 +98,12 @@ public class ConfigApi {
             productoApi = retrofit.create(ProductoApi.class);
         }
         return productoApi;
+    }
+
+    public static PedidoApi getPedidoApi(){
+        if (pedidoApi == null){
+            pedidoApi = retrofit.create(PedidoApi.class);
+        }
+        return pedidoApi;
     }
 }
