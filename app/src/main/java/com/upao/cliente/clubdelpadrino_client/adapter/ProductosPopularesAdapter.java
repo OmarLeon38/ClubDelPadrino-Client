@@ -1,5 +1,6 @@
 package com.upao.cliente.clubdelpadrino_client.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +12,29 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 import com.upao.cliente.clubdelpadrino_client.R;
+import com.upao.cliente.clubdelpadrino_client.activity.DetalleProductoActivity;
 import com.upao.cliente.clubdelpadrino_client.api.ConfigApi;
-import com.upao.cliente.clubdelpadrino_client.entity.service.DetallePedido;
+import com.upao.cliente.clubdelpadrino_client.communication.Communication;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Producto;
+import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
+import com.upao.cliente.clubdelpadrino_client.utils.TimeSerializer;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 public class ProductosPopularesAdapter extends RecyclerView.Adapter<ProductosPopularesAdapter.ViewHolder> {
     private List<Producto> productos;
+    private final Communication communication;
 
-    public ProductosPopularesAdapter(List<Producto> productos) {
+    public ProductosPopularesAdapter(List<Producto> productos, Communication communication) {
         this.productos = productos;
+        this.communication = communication;
     }
 
     @NonNull
@@ -73,6 +83,17 @@ public class ProductosPopularesAdapter extends RecyclerView.Adapter<ProductosPop
             btnComprar.setOnClickListener(v -> {
                 Toast.makeText(itemView.getContext(), "a", Toast.LENGTH_SHORT).show();
 
+            });
+
+            //Detalle producto
+            itemView.setOnClickListener(view -> {
+                final Intent i = new Intent(itemView.getContext(), DetalleProductoActivity.class);
+                final Gson g = new GsonBuilder()
+                        .registerTypeAdapter(Date.class, new DateSerializer())
+                        .registerTypeAdapter(Time.class, new TimeSerializer())
+                        .create();
+                i.putExtra("detalleProducto", g.toJson(p));
+                communication.showDetails(i);
             });
         }
     }

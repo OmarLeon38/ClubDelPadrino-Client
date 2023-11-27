@@ -6,18 +6,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.adapter.ProductosPorCategoriaAdapter;
+import com.upao.cliente.clubdelpadrino_client.communication.Communication;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Producto;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.ProductoViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarProductoPorCategoriaActivity extends AppCompatActivity {
+public class ListarProductoPorCategoriaActivity extends AppCompatActivity implements Communication {
     private ProductoViewModel productoViewModel;
     private ProductosPorCategoriaAdapter adapter;
     private List<Producto> productos = new ArrayList<>();
@@ -48,7 +50,7 @@ public class ListarProductoPorCategoriaActivity extends AppCompatActivity {
     }
 
     private void initAdapter() {
-        adapter = new ProductosPorCategoriaAdapter(productos);
+        adapter = new ProductosPorCategoriaAdapter(productos, this);
         rcvProductoPorCategoria = findViewById(R.id.rcvPlatillosPorCategoria);
         rcvProductoPorCategoria.setAdapter(adapter);
         rcvProductoPorCategoria.setLayoutManager(new LinearLayoutManager(this));
@@ -60,4 +62,11 @@ public class ListarProductoPorCategoriaActivity extends AppCompatActivity {
             adapter.updateItems(response.getBody());
         });
     }
+
+    public void showDetails(Intent i){
+        startActivity(i);
+        overridePendingTransition(R.anim.above_in, R.anim.above_out);
+    }
+
+
 }

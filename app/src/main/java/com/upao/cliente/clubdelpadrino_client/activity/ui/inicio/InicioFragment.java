@@ -1,5 +1,6 @@
 package com.upao.cliente.clubdelpadrino_client.activity.ui.inicio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.adapter.CategoriaAdapter;
 import com.upao.cliente.clubdelpadrino_client.adapter.ProductosPopularesAdapter;
+import com.upao.cliente.clubdelpadrino_client.communication.Communication;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Producto;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.CategoriaViewModel;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.ProductoViewModel;
@@ -25,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InicioFragment extends Fragment {
+public class InicioFragment extends Fragment implements Communication {
 
     private CategoriaViewModel categoriaViewModel;
     private ProductoViewModel productoViewModel;
@@ -64,7 +66,7 @@ public class InicioFragment extends Fragment {
         categoriaAdapter = new CategoriaAdapter(getContext(), R.layout.item_categorias, new ArrayList<>());
         gvCategorias.setAdapter(categoriaAdapter);
 
-        adapter = new ProductosPopularesAdapter(productos);
+        adapter = new ProductosPopularesAdapter(productos, this);
         rcvProductosPopulares.setAdapter(adapter);
     }
 
@@ -81,5 +83,11 @@ public class InicioFragment extends Fragment {
         productoViewModel.listarProductosPopulares().observe(getViewLifecycleOwner(), response -> {
             adapter.updateItems(response.getBody());
         });
+    }
+
+    @Override
+    public void showDetails(Intent i) {
+        getActivity().startActivity(i);
+        getActivity().overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 }
