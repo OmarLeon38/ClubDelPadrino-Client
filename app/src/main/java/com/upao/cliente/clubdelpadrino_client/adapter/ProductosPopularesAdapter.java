@@ -81,8 +81,9 @@ public class ProductosPopularesAdapter extends RecyclerView.Adapter<ProductosPop
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnComprar.setOnClickListener(v -> {
-                Toast.makeText(itemView.getContext(), "a", Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(itemView.getContext(), DetalleProductoActivity.class);
+                intent.putExtra("detalleProducto", new Gson().toJson(p));
+                itemView.getContext().startActivity(intent);
             });
 
             //Detalle producto

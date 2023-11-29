@@ -59,7 +59,7 @@
                 android:layout_marginTop="50dp"
                 android:backgroundTint="@color/dorado"
                 android:fontFamily="@font/open_sans"
-                android:text="Comprar"
+                android:text="Ver producto"
                 android:textColor="#fff"
                 android:textSize="11dp"
                 android:textStyle="bold" />

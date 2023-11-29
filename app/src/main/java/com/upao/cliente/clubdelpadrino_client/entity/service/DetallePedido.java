@@ -60,4 +60,15 @@ public class DetallePedido {
         return this.cantidad * this.precio;
     }
 
+    public void addOne(){
+        this.cantidad++;
+    }
+
+    public void removeOne(){
+        this.cantidad--;
+    }
+
+    public double getTotal() {
+        return this.cantidad * this.precio;
+    }
 }

@@ -88,7 +88,10 @@ public class ProductosPorCategoriaAdapter extends RecyclerView.Adapter<Productos
             nameProductoC.setText(p.getNombre());
             txtPrecioProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnComprarPC.setOnClickListener(v -> {
-                Toast.makeText(this.itemView.getContext(), "b", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(itemView.getContext(), DetalleProductoActivity.class);
+                intent.putExtra("detalleProducto", new Gson().toJson(p));
+                itemView.getContext().startActivity(intent);
+
             });
 
             //Detalle producto

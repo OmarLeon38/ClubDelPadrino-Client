@@ -120,15 +120,23 @@
                                 android:drawableTint="@color/white"
                                 android:text="Añadir al carrito" />
 
+                            <LinearLayout
+                                android:id="@+id/ComprarAhora"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnComprar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@color/dorado"
-                                android:drawableEnd="@drawable/ic_billetera"
                                 android:drawableTint="@color/white"
+                                android:drawableEnd="@drawable/ic_billetera"
                                 android:text="Comprar ahora" />
+
                         </LinearLayout>
+                    </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

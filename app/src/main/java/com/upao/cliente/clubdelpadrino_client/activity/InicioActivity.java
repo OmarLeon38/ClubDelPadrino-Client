@@ -1,5 +1,6 @@
 package com.upao.cliente.clubdelpadrino_client.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -78,8 +79,17 @@ public class InicioActivity extends AppCompatActivity {
             case R.id.cerrarSesion:
                 this.logout();
                 break;
+            case R.id.carritoCompras:
+                this.mostrarCarrito();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void mostrarCarrito() {
+        Intent i = new Intent(this, ProductosCarritoActivity.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
     @Override
