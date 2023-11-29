@@ -7,6 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.upao.cliente.clubdelpadrino_client.entity.GenericResponse;
+import com.upao.cliente.clubdelpadrino_client.entity.service.Pedido;
+import com.upao.cliente.clubdelpadrino_client.entity.service.dto.GenerarPedidoDTO;
 import com.upao.cliente.clubdelpadrino_client.entity.service.dto.PedidoConDetallesDTO;
 import com.upao.cliente.clubdelpadrino_client.repository.PedidoRepository;
 
@@ -22,5 +24,13 @@ public class PedidoViewModel extends AndroidViewModel {
 
     public LiveData<GenericResponse<List<PedidoConDetallesDTO>>> listarPedidosPorCliente(int idClient) {
         return repository.listarPedidosPorCliente(idClient);
+    }
+
+    public LiveData<GenericResponse<GenerarPedidoDTO>> guardarPedido(GenerarPedidoDTO dto) {
+        return repository.save(dto);
+    }
+
+    public LiveData<GenericResponse<Pedido>> anularPedido(int id) {
+        return repository.anularPedido(id);
     }
 }

@@ -100,30 +100,31 @@ public class DetalleProductoActivity extends AppCompatActivity {
         this.btnAgregarCarrito.setOnClickListener(v -> agregarAlCarrito());
         //Compra individual
         this.btnComprar.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Ingrese la cantidad");
-            DetallePedido detallePedido = new DetallePedido();
-            final EditText editText = new EditText(this);
-            editText.setInputType(InputType.TYPE_CLASS_NUMBER);
-            builder.setView(editText);
+            int stock = producto.getStock();
+            if (stock >= 1) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Ingrese la cantidad");
+                DetallePedido detallePedido = new DetallePedido();
+                final EditText editText = new EditText(this);
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(editText);
 
-            builder.setPositiveButton("Aceptar", (dialog, which) -> {
-                String cantidadString = editText.getText().toString();
-                if (!cantidadString.isEmpty()) {
-                    int cantidad = Integer.parseInt(cantidadString);
-                    if (cantidad >= 1 && cantidad <= producto.getStock()) {
-                        detallePedido.setCantidad(cantidad);
-                        detallePedido.setProducto(producto);
-                        detallePedido.setPrecio(producto.getPrecio());
-                        successMessage(Carrito.agregarProductos(detallePedido));
-                        // Resto de la lógica para procesar la compra
-                    } else if (cantidad > producto.getStock()) {
-                        errorMessage("Esa cantidad sobrepasa la cantidad máxima del stock");
-                    } else if (cantidad <= 0) {
-                        warningMessage("Ese valor no es posible de comprar");
-                    } else {
-                        errorMessage("ERROR");
-                    }
+                builder.setPositiveButton("Aceptar", (dialog, which) -> {
+                    String cantidadString = editText.getText().toString();
+                    if (!cantidadString.isEmpty()) {
+                        int cantidad = Integer.parseInt(cantidadString);
+                        if (cantidad >= 1 && cantidad <= producto.getStock()) {
+                            detallePedido.setCantidad(cantidad);
+                            detallePedido.setProducto(producto);
+                            detallePedido.setPrecio(producto.getPrecio());
+                            successMessage(Carrito.agregarProductos(detallePedido));
+                        } else if (cantidad >= producto.getStock()) {
+                            errorMessage("Esa cantidad sobrepasa el stock disponible actualmente");
+                        } else if (cantidad <= 0) {
+                            warningMessage("!Error!");
+                        } else {
+                            errorMessage("ERROR");
+                        }
                 } else {
                     warningMessage("Ingrese una cantidad válida");
                 }
@@ -131,8 +132,11 @@ public class DetalleProductoActivity extends AppCompatActivity {
 
             builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.cancel());
 
-            AlertDialog dialog = builder.create();
-            dialog.show();
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            } else {
+                warningMessage("No hay stock de este producto");
+            }
         });
     }
 
@@ -152,7 +156,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
 
     public void errorMessage(String message) {
         new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-                .setTitleText("!ERROR!")
+                .setTitleText("!Error!")
                 .setContentText(message)
                 .show();
     }

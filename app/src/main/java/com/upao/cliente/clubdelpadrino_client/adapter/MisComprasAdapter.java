@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.activity.ui.compras.DetalleMisComprasActivity;
+import com.upao.cliente.clubdelpadrino_client.communication.AnularPedidoCommunication;
 import com.upao.cliente.clubdelpadrino_client.communication.Communication;
 import com.upao.cliente.clubdelpadrino_client.entity.service.dto.PedidoConDetallesDTO;
 import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
@@ -23,13 +24,17 @@ import java.sql.Time;
 import java.util.List;
 import java.util.Locale;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class MisComprasAdapter extends RecyclerView.Adapter<MisComprasAdapter.ViewHolder> {
     private final List<PedidoConDetallesDTO> pedidos;
     private final Communication communication;
+    private final AnularPedidoCommunication anularPedidoCommunication;
 
-    public MisComprasAdapter(List<PedidoConDetallesDTO> pedidos, Communication communication) {
+    public MisComprasAdapter(List<PedidoConDetallesDTO> pedidos, Communication communication, AnularPedidoCommunication anularPedidoCommunication) {
         this.pedidos = pedidos;
         this.communication = communication;
+        this.anularPedidoCommunication = anularPedidoCommunication;
     }
 
     @NonNull
@@ -68,7 +73,7 @@ public class MisComprasAdapter extends RecyclerView.Adapter<MisComprasAdapter.Vi
             txtValueCodPurchases.setText("ORD000" + Integer.toString(dto.getPedido().getId()));
             txtValueDatePurchases.setText((dto.getPedido().getFechaCompra()).toString());
             txtValueAmount.setText(String.format(Locale.ENGLISH, "S/%.2f", dto.getPedido().getMonto()));
-            txtValueOrder.setText(dto.getPedido().isAnularPedido() ? "Pedido cancelado" : "Enviado");
+            txtValueOrder.setText(dto.getPedido().isAnularPedido() ? "Pedido anulado" : "Enviado");
 
             itemView.setOnClickListener(view -> {
                 final Intent i = new Intent(itemView.getContext(), DetalleMisComprasActivity.class);
@@ -79,6 +84,36 @@ public class MisComprasAdapter extends RecyclerView.Adapter<MisComprasAdapter.Vi
                 i.putExtra("detailsPurchases", g.toJson(dto.getDetallePedido()));
                 communication.showDetails(i);
             });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    anularPedido(dto.getPedido().getId());
+                    return true;
+                }
+            });
+        }
+
+        private void anularPedido(int id) {
+            new SweetAlertDialog(itemView.getContext(), SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("¿Estás seguro?")
+                    .setContentText("¿Deseas anular el pedido?")
+                    .setCancelText("No, cancelar")
+                    .setConfirmText("Sí, confirmar")
+                    .showCancelButton(true)
+                    .setConfirmClickListener(sDialog -> {
+                        sDialog.dismissWithAnimation();
+                        new SweetAlertDialog(itemView.getContext(), SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("¡Anulado!")
+                                .setContentText(anularPedidoCommunication.anularPedido(id))
+                                .show();
+                    }).setCancelClickListener(sDialog -> {
+                        sDialog.dismissWithAnimation();
+                        new SweetAlertDialog(itemView.getContext(), SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("¡Cancelado!")
+                                .setContentText("El pedido no se anuló")
+                                .show();
+                    }).show();
         }
     }
 }

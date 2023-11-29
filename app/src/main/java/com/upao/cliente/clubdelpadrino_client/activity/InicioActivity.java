@@ -1,5 +1,6 @@
 package com.upao.cliente.clubdelpadrino_client.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,6 +31,7 @@ import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.api.ConfigApi;
 import com.upao.cliente.clubdelpadrino_client.databinding.ActivityInicioBinding;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Usuario;
+import com.upao.cliente.clubdelpadrino_client.utils.Carrito;
 import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
 import com.upao.cliente.clubdelpadrino_client.utils.TimeSerializer;
 
@@ -98,6 +102,7 @@ public class InicioActivity extends AppCompatActivity {
         loadData();
     }
 
+    @SuppressLint("UnsafeOptInUsageError")
     private void loadData() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         final Gson g = new GsonBuilder()
@@ -121,6 +126,9 @@ public class InicioActivity extends AppCompatActivity {
                     .error(R.drawable.perfil_vacio)
                     .into(imgFoto);
         }
+        BadgeDrawable badgeDrawable = BadgeDrawable.create(this);
+        badgeDrawable.setNumber(Carrito.getDetallePedidos().size());
+        BadgeUtils.attachBadgeDrawable(badgeDrawable, findViewById(R.id.toolbar), R.id.carritoCompras);
     }
 
     private void logout() {

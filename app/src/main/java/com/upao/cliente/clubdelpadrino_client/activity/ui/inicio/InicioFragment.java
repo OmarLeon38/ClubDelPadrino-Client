@@ -1,5 +1,6 @@
 package com.upao.cliente.clubdelpadrino_client.activity.ui.inicio;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,11 +15,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.badge.BadgeUtils;
 import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.adapter.CategoriaAdapter;
 import com.upao.cliente.clubdelpadrino_client.adapter.ProductosPopularesAdapter;
+import com.upao.cliente.clubdelpadrino_client.communication.BadgeCommunication;
 import com.upao.cliente.clubdelpadrino_client.communication.Communication;
+import com.upao.cliente.clubdelpadrino_client.entity.service.DetallePedido;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Producto;
+import com.upao.cliente.clubdelpadrino_client.utils.Carrito;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.CategoriaViewModel;
 import com.upao.cliente.clubdelpadrino_client.viewmodel.ProductoViewModel;
 
@@ -27,7 +33,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InicioFragment extends Fragment implements Communication {
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
+public class InicioFragment extends Fragment implements Communication, BadgeCommunication {
 
     private CategoriaViewModel categoriaViewModel;
     private ProductoViewModel productoViewModel;
@@ -89,5 +97,22 @@ public class InicioFragment extends Fragment implements Communication {
     public void showDetails(Intent i) {
         getActivity().startActivity(i);
         getActivity().overridePendingTransition(R.anim.left_in, R.anim.left_out);
+    }
+
+    @SuppressLint("UnsafeOptInUsageError")
+    @Override
+    public void add(DetallePedido dp) {
+        successMessage(Carrito.agregarProductos(dp));
+        BadgeDrawable badgeDrawable = BadgeDrawable.create(this.getContext());
+        badgeDrawable.setNumber(Carrito.getDetallePedidos().size());
+        BadgeUtils.attachBadgeDrawable(badgeDrawable, getActivity().findViewById(R.id.toolbar), R.id.carritoCompras);
+    }
+
+    public void successMessage(String message){
+        new SweetAlertDialog(this.getContext(),
+                SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText("¡Éxito!")
+                .setContentText(message)
+                .show();
     }
 }

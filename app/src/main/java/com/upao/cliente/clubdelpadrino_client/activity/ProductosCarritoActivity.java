@@ -2,6 +2,7 @@ package com.upao.cliente.clubdelpadrino_client.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,15 +25,19 @@ import com.upao.cliente.clubdelpadrino_client.adapter.ProductoCarritoAdapter;
 import com.upao.cliente.clubdelpadrino_client.communication.CarritoCommunication;
 import com.upao.cliente.clubdelpadrino_client.entity.service.DetallePedido;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Usuario;
+import com.upao.cliente.clubdelpadrino_client.entity.service.dto.GenerarPedidoDTO;
 import com.upao.cliente.clubdelpadrino_client.utils.Carrito;
 import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
 import com.upao.cliente.clubdelpadrino_client.utils.TimeSerializer;
+import com.upao.cliente.clubdelpadrino_client.viewmodel.PedidoViewModel;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductosCarritoActivity extends AppCompatActivity implements CarritoCommunication {
+    private PedidoViewModel pedidoViewModel;
     private ProductoCarritoAdapter adapter;
     private RecyclerView rcvCarritoCompras;
     private Button btnRealizarCompra;
@@ -47,6 +52,7 @@ public class ProductosCarritoActivity extends AppCompatActivity implements Carri
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productos_carrito);
         init();
+        initViewModel();
         initAdapter();
     }
 
@@ -69,7 +75,7 @@ public class ProductosCarritoActivity extends AppCompatActivity implements Carri
                     toastIncorrecto("¡El carrito de compras está vacio!");
                 } else {
                     toastCorrecto("Procesando pedido...");
-                    //registrarPedido(idC);
+                    registrarPedido(idC);
                 }
             } else {
                 toastIncorrecto("Inicie sesión para realizar un pedido");
@@ -79,10 +85,35 @@ public class ProductosCarritoActivity extends AppCompatActivity implements Carri
         });
     }
 
+    private void initViewModel() {
+        final ViewModelProvider vmp = new ViewModelProvider(this);
+        this.pedidoViewModel = vmp.get(PedidoViewModel.class);
+    }
+
     private void initAdapter() {
         adapter = new ProductoCarritoAdapter(Carrito.getDetallePedidos(), this);
         rcvCarritoCompras.setLayoutManager(new LinearLayoutManager(this));
         rcvCarritoCompras.setAdapter(adapter);
+    }
+
+    private void registrarPedido(int idC) {
+        ArrayList<DetallePedido> detallePedidos = Carrito.getDetallePedidos();
+        GenerarPedidoDTO dto = new GenerarPedidoDTO();
+        java.util.Date date = new java.util.Date();
+        dto.getPedido().setFechaCompra(new Date(date.getTime()));
+        dto.getPedido().setMonto(getTotalV(detallePedidos));
+        dto.getCliente().setId(idC);
+        dto.setDetallePedido(detallePedidos);
+        this.pedidoViewModel.guardarPedido(dto).observe(this, response -> {
+            if (response.getRpta() == 1){
+                toastCorrecto("¡Pedido registrado correctamente!");
+                Carrito.limpiar();
+                finish();
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+            } else {
+                toastIncorrecto("¡Ocurrió un error al registrar el pedido!");
+            }
+        });
     }
 
     private double getTotalV(List<DetallePedido> detalles) {

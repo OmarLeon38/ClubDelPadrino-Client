@@ -85,7 +85,7 @@ public class ProductoCarritoAdapter extends RecyclerView.Adapter<ProductoCarrito
             });
 
             btnAdd.setOnClickListener(v -> {
-                if (dp.getCantidad() != 10) {
+                if (dp.getCantidad() != 20) {
                     dp.addOne();
                     ProductoCarritoAdapter.this.notifyDataSetChanged();
                 }

@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.upao.cliente.clubdelpadrino_client.R;
 import com.upao.cliente.clubdelpadrino_client.adapter.MisComprasAdapter;
+import com.upao.cliente.clubdelpadrino_client.communication.AnularPedidoCommunication;
 import com.upao.cliente.clubdelpadrino_client.communication.Communication;
 import com.upao.cliente.clubdelpadrino_client.entity.service.Usuario;
 import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
@@ -29,7 +30,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
-public class MisComprasFragment extends Fragment implements Communication {
+public class MisComprasFragment extends Fragment implements Communication, AnularPedidoCommunication {
     private PedidoViewModel pedidoViewModel;
     private RecyclerView rcvPedidos;
     private MisComprasAdapter adapter;
@@ -59,7 +60,7 @@ public class MisComprasFragment extends Fragment implements Communication {
     }
 
     private void initAdapter() {
-        adapter = new MisComprasAdapter(new ArrayList<>(), this);
+        adapter = new MisComprasAdapter(new ArrayList<>(), this, this);
         rcvPedidos.setLayoutManager(new GridLayoutManager(getContext(), 1));
         rcvPedidos.setAdapter(adapter);
     }
@@ -83,5 +84,15 @@ public class MisComprasFragment extends Fragment implements Communication {
     public void showDetails(Intent i) {
         getActivity().startActivity(i);
         getActivity().overridePendingTransition(R.anim.above_in, R.anim.above_out);
+    }
+
+    @Override
+    public String anularPedido(int id) {
+        this.pedidoViewModel.anularPedido(id).observe(getViewLifecycleOwner(), response -> {
+            if (response.getRpta() == 1) {
+                this.loadData();
+            }
+        });
+        return "Pedido anulado";
     }
 }
