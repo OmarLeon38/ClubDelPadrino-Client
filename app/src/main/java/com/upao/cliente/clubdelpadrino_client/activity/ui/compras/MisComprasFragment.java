@@ -21,9 +21,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.upao.cliente.clubdelpadrino_client.R;
+import com.upao.cliente.clubdelpadrino_client.activity.VerBoletaActivity;
 import com.upao.cliente.clubdelpadrino_client.adapter.MisComprasAdapter;
 import com.upao.cliente.clubdelpadrino_client.communication.AnularPedidoCommunication;
 import com.upao.cliente.clubdelpadrino_client.communication.Communication;
@@ -121,7 +123,21 @@ public class MisComprasFragment extends Fragment implements Communication, Anula
                             FileOutputStream fileOutputStream = new FileOutputStream(file);
                             fileOutputStream.write(bytes);
                             fileOutputStream.close();
-                            successMessage("Factura exportada correctamente" + file.getAbsolutePath());
+                            //successMessage("Factura exportada correctamente" + file.getAbsolutePath());
+
+                            //Ver PDF
+                            new MaterialAlertDialogBuilder(requireContext()).setTitle("Exportar Boleta")
+                                    .setMessage("Boleta exportada correctamente en la siguiente ruta: "
+                                    + file.getAbsolutePath() + " ¿Desea ver la boleta ahora?")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Si", (dialog, i) -> {
+                                        dialog.dismiss();
+                                        Intent intent = new Intent(requireContext(), VerBoletaActivity.class);
+                                        intent.putExtra("pdf", bytes);
+                                        startActivity(intent);
+                                    }).setNegativeButton("No", (dialogInterface, i) -> {
+                                        dialogInterface.dismiss();
+                                    }).show();
                         }
                     }catch (Exception e) {
                         errorMessage("No se pudo exportar la factura");

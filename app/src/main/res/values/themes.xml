@@ -3,7 +3,7 @@
     <style name="Base.Theme.ClubDelPadrinoClient" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
 
-        <item name="android:statusBarColor">@color/dorado</item>
+        <item name="android:statusBarColor">#D4B85C</item>
     </style>
 
     <style name="Theme.ClubDelPadrinoClient" parent="Base.Theme.ClubDelPadrinoClient" />
