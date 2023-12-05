@@ -24,6 +24,10 @@ import com.upao.cliente.clubdelpadrino_client.entity.service.Producto;
 import com.upao.cliente.clubdelpadrino_client.utils.DateSerializer;
 import com.upao.cliente.clubdelpadrino_client.utils.TimeSerializer;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.StringReader;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -55,9 +59,35 @@ public class ProductosPopularesAdapter extends RecyclerView.Adapter<ProductosPop
     }
 
     public void updateItems(List<Producto> productos){
-        this.productos.clear();
-        this.productos.addAll(productos);
-        this.notifyDataSetChanged();
+        if (productos != null) {
+            this.productos.clear();
+            this.productos.addAll(productos);
+            this.notifyDataSetChanged();
+        } else{
+            try {
+                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                factory.setNamespaceAware(true);
+                XmlPullParser xpp = factory.newPullParser();
+
+                xpp.setInput(new StringReader("<GenericResponse>...</GenericResponse>"));
+                int eventType = xpp.getEventType();
+                while (eventType != XmlPullParser.END_DOCUMENT) {
+                    if(eventType == XmlPullParser.START_DOCUMENT) {
+                        System.out.println("Start document");
+                    } else if(eventType == XmlPullParser.START_TAG) {
+                        System.out.println("Start tag "+xpp.getName());
+                    } else if(eventType == XmlPullParser.END_TAG) {
+                        System.out.println("End tag "+xpp.getName());
+                    } else if(eventType == XmlPullParser.TEXT) {
+                        System.out.println("Text "+xpp.getText());
+                    }
+                    eventType = xpp.next();
+                }
+                System.out.println("End document");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {

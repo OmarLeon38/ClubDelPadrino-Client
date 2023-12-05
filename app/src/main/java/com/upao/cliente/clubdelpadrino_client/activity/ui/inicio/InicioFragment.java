@@ -99,6 +99,11 @@ public class InicioFragment extends Fragment implements Communication, BadgeComm
         getActivity().overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
+    @Override
+    public void exportInvoice(int idClient, int idOrden, String fileName) {
+
+    }
+
     @SuppressLint("UnsafeOptInUsageError")
     @Override
     public void add(DetallePedido dp) {

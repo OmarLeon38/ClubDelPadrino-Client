@@ -14,6 +14,8 @@ import com.upao.cliente.clubdelpadrino_client.repository.PedidoRepository;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
+
 public class PedidoViewModel extends AndroidViewModel {
     private final PedidoRepository repository;
 
@@ -32,5 +34,15 @@ public class PedidoViewModel extends AndroidViewModel {
 
     public LiveData<GenericResponse<Pedido>> anularPedido(int id) {
         return repository.anularPedido(id);
+    }
+
+    /**
+     * Exportar factura en PDF
+     * @param idClient
+     * @param idOrden
+     * @return
+     */
+    public LiveData<GenericResponse<ResponseBody>> exportInvoice(int idClient, int idOrden) {
+        return repository.exportInvoice(idClient, idOrden);
     }
 }

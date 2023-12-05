@@ -68,5 +68,13 @@ public class ListarProductoPorCategoriaActivity extends AppCompatActivity implem
         overridePendingTransition(R.anim.above_in, R.anim.above_out);
     }
 
+    //REVISAR////////////////////////////
+    /////////////////////////////////////
+    //////////////////////////////////////
+    @Override
+    public void exportInvoice(int idClient, int idOrden, String fileName) {
+
+    }
+
 
 }
