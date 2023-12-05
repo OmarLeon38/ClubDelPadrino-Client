@@ -158,6 +158,7 @@
                                         android:id="@+id/edtNameUser"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -186,6 +187,7 @@
                                         android:id="@+id/edtApellidoPaternoU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -207,6 +209,7 @@
                                         android:id="@+id/edtApellidoMaternoU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -258,6 +261,7 @@
                                         android:id="@+id/edtNumDocU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:inputType="number"
                                         android:textSize="15sp" />
@@ -363,6 +367,7 @@
                                         android:id="@+id/edtTelefonoU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:inputType="number"
                                         android:textSize="15sp" />
@@ -390,6 +395,7 @@
                                         android:id="@+id/edtDireccionU"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -470,6 +476,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/open_sans"
+                                        android:textColor="@color/black"
                                         android:inputType="textEmailAddress"
                                         android:textSize="15sp" />
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -490,6 +497,7 @@
                                         android:id="@+id/edtPasswordUser"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:fontFamily="@font/open_sans"
                                         android:inputType="textPassword"
                                         android:textSize="15sp" />

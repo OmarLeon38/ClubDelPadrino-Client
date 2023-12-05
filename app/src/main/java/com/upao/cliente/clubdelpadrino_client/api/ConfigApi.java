@@ -38,7 +38,7 @@ public class ConfigApi {
                 .registerTypeAdapter(Time.class, new TimeSerializer())
                 .create();
         retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrlE)
+                .baseUrl(ipOmarLeon)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(getClient())
                 .build();

@@ -84,7 +84,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
             this.tvNameProductoDetalle.setText(producto.getNombre());
             this.tvPrecioProductoDetalle.setText(String.format(Locale.ENGLISH, "S/%.2f", producto.getPrecio()));
             this.tvDescripcionProductoDetalle.setText(producto.getDescripcionProducto());
-            String url = ConfigApi.baseUrlE + "/api/foto/download/" + producto.getFoto().getFileName();
+            String url = ConfigApi.ipOmarLeon + "/api/foto/download/" + producto.getFoto().getFileName();
 
             Picasso picasso = new Picasso.Builder(this)
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))

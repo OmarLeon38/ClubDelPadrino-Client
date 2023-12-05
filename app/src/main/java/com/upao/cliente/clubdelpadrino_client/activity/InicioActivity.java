@@ -118,7 +118,7 @@ public class InicioActivity extends AppCompatActivity {
 
             tvNombre.setText(u.getCliente().getNombreCompletoCiente());
             tvCorreo.setText(u.getEmail());
-            String url = ConfigApi.baseUrlE + "/api/foto/download/" + u.getCliente().getFoto().getFileName();
+            String url = ConfigApi.ipOmarLeon + "/api/foto/download/" + u.getCliente().getFoto().getFileName();
             final Picasso picasso = new Picasso.Builder(this)
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
                     .build();

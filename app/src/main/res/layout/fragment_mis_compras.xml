@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".activity.ui.compras.MisComprasFragment">
 
     <ScrollView
@@ -18,8 +19,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvMisCompras"
                 android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
                 android:layout_height="match_parent" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

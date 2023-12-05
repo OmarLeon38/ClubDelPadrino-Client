@@ -151,11 +151,11 @@ public class MisComprasFragment extends Fragment implements Communication, Anula
             new SweetAlertDialog(requireContext(),
                     SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Permisos")
-                    .setContentText("Se requieren permisos para poder exportar la factura")
-                    .setConfirmButton("Conceder", sweetAlertDialog -> {
+                    .setContentText("¿Conceder permisos para acceder a tus archivos?")
+                    .setConfirmButton("Si", sweetAlertDialog -> {
                         sweetAlertDialog.dismissWithAnimation();
                         perReqLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                    }).setCancelButton("Quizá más tarde", SweetAlertDialog::dismissWithAnimation).show();
+                    }).setCancelButton("Ahora no", SweetAlertDialog::dismissWithAnimation).show();
         }
     }
 

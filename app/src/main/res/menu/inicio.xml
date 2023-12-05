@@ -15,7 +15,7 @@
         android:id="@+id/more"
         android:icon="@drawable/ic_more"
         android:iconTint="@color/white"
-        android:title="Contáctanos"
+        android:title="Más"
         app:showAsAction="always">
         <menu>
             <item

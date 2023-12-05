@@ -101,7 +101,7 @@ public class ProductosPopularesAdapter extends RecyclerView.Adapter<ProductosPop
             TextView nameProducto = itemView.findViewById(R.id.nameProducto);
             Button btnComprar = itemView.findViewById(R.id.btnComprar);
 
-            String url = ConfigApi.baseUrlE + "/api/foto/download/" + p.getFoto().getFileName();
+            String url = ConfigApi.ipOmarLeon + "/api/foto/download/" + p.getFoto().getFileName();
 
             Picasso picasso = new Picasso.Builder(itemView.getContext())
                     .downloader(new OkHttp3Downloader(itemView.getContext()))

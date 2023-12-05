@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:backgroundTint="@color/grisClaro"
+        android:backgroundTint="@color/doradoMenosSaturado"
         android:elevation="5dp"
         app:cardCornerRadius="10dp">
 
@@ -90,6 +90,7 @@
                         android:id="@+id/btnDecrease"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_toStartOf="@id/edtCantidad"
                         android:background="#F4F2F2"
                         android:src="@drawable/ic_quitar" />
@@ -101,8 +102,10 @@
                         android:layout_toStartOf="@id/btnAdd"
                         android:fontFamily="@font/open_sans"
                         android:inputType="none"
+                        android:background="@color/white"
                         android:editable="false"
                         android:focusable="false"
+                        android:textColor="@color/black"
                         android:clickable="false"
                         android:text="2"
                         android:textAlignment="center"
@@ -112,6 +115,7 @@
                         android:id="@+id/btnAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_alignParentEnd="true"
                         android:background="#F4F2F2"
                         android:src="@drawable/ic_agregar" />

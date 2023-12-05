@@ -1,2 +1,2 @@
-rootProject.name = "ClubDelPadrino-Client"
+rootProject.name = "Club del Padrino App"
 include ':app'

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:backgroundTint="#403F3F"
+        android:backgroundTint="@color/doradoMenosSaturado"
         android:elevation="5dp"
         app:cardCornerRadius="10dp">
 
@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans"
                         android:text="Código Compras : "
-                        android:textColor="#fff"
+                        android:textColor="@color/black"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
@@ -47,7 +47,7 @@
                         android:layout_toEndOf="@+id/txtNameCodCompras"
                         android:fontFamily="@font/open_sans"
                         android:text="C0001"
-                        android:textColor="#F4EDED"
+                        android:textColor="@color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans"
                         android:text="Fecha Compras : "
-                        android:textColor="#fff"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -74,7 +74,7 @@
                         android:layout_toEndOf="@+id/txtNameDatePurchases"
                         android:fontFamily="@font/open_sans"
                         android:text="24/11/2023"
-                        android:textColor="#F4EDED"
+                        android:textColor="@color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans"
                         android:text="Monto :  "
-                        android:textColor="#fff"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -101,7 +101,7 @@
                         android:layout_toEndOf="@+id/txtNameAmount"
                         android:fontFamily="@font/open_sans"
                         android:text="S/. 85.00"
-                        android:textColor="#F4EDED"
+                        android:textColor="@color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans"
                         android:text="Estado del Pedido : "
-                        android:textColor="#fff"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -128,7 +128,7 @@
                         android:layout_toEndOf="@+id/txtNameOrder"
                         android:fontFamily="@font/open_sans"
                         android:text="En proceso"
-                        android:textColor="#F4EDED"
+                        android:textColor="@color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -139,6 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
+                        android:textColor="@color/white"
                         android:backgroundTint="@color/dorado"
                         android:text="Descargar boleta"
                         android:layout_marginTop="5dp"

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".activity.DetalleProductoActivity">
 
     <LinearLayout
@@ -51,12 +52,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/doradoMenosSaturado"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/imgProductoDetalle"
                             android:layout_width="200dp"
                             android:layout_height="200dp"
+                            android:layout_marginTop="15dp"
                             android:layout_gravity="center"
                             android:src="@drawable/hamburguesa" />
 
@@ -71,6 +74,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/open_sans"
+                                android:layout_marginTop="5dp"
                                 android:text="La Jedi Burguer"
                                 android:textColor="@color/dorado"
                                 android:textSize="20sp"
@@ -115,6 +119,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="8dp"
+                                android:textColor="@color/white"
                                 android:backgroundTint="@color/dorado"
                                 android:drawableEnd="@drawable/ic_add_carrito"
                                 android:drawableTint="@color/white"
@@ -131,9 +136,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@color/dorado"
+                                android:textColor="@color/white"
                                 android:drawableTint="@color/white"
                                 android:drawableEnd="@drawable/ic_billetera"
-                                android:text="Comprar ahora" />
+                                android:text="Comprar" />
 
                         </LinearLayout>
                     </LinearLayout>

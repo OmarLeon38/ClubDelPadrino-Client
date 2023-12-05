@@ -77,7 +77,7 @@ public class ProductosPorCategoriaAdapter extends RecyclerView.Adapter<Productos
         }
 
         public void setItem(final Producto p) {
-            String url = ConfigApi.baseUrlE + "/api/foto/download/" + p.getFoto().getFileName();
+            String url = ConfigApi.ipOmarLeon + "/api/foto/download/" + p.getFoto().getFileName();
 
             Picasso picasso = new Picasso.Builder(itemView.getContext())
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
