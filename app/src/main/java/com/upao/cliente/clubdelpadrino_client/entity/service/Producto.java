@@ -16,8 +16,6 @@ public class Producto {
 
     private Categoria categoria;
 
-    private boolean vigencia;
-
     private boolean recomendado;
 
     public int getId() {
@@ -74,14 +72,6 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public boolean isVigencia() {
-        return vigencia;
-    }
-
-    public void setVigencia(boolean vigencia) {
-        this.vigencia = vigencia;
     }
 
     public boolean isRecomendado() {

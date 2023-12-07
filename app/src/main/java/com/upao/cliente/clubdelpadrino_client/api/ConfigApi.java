@@ -16,8 +16,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigApi {
-    public static final String baseUrlE = "http://10.0.2.2:9090";
-    //public static final String baseUrlE = "https://tedious-increase-production.up.railway.app";
+    //public static final String baseUrlE = "http://10.0.2.2:9090";
+    public static final String baseUrlE = "https://clubdelpadrino-service.up.railway.app";
     public static final String ipOmarLeon = "http://192.168.1.11:9090";
     private static Retrofit retrofit;
     private static String token = "";

@@ -6,8 +6,6 @@ public class Categoria {
 
     private String nombre;
 
-    private boolean vigencia;
-
     private Foto foto;
 
     public int getId() {
@@ -24,14 +22,6 @@ public class Categoria {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public boolean isVigencia() {
-        return vigencia;
-    }
-
-    public void setVigencia(boolean vigencia) {
-        this.vigencia = vigencia;
     }
 
     public Foto getFoto() {

@@ -8,8 +8,6 @@ public class Usuario {
 
     private String clave;
 
-    private boolean vigencia;
-
     private Cliente cliente;
 
     public int getId() {
@@ -34,14 +32,6 @@ public class Usuario {
 
     public void setClave(String clave) {
         this.clave = clave;
-    }
-
-    public boolean isVigencia() {
-        return vigencia;
-    }
-
-    public void setVigencia(boolean vigencia) {
-        this.vigencia = vigencia;
     }
 
     public Cliente getCliente() {

@@ -405,7 +405,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                                 Usuario u = new Usuario();
                                 u.setEmail(edtEmailUser.getText().toString());
                                 u.setClave(edtPasswordUser.getText().toString());
-                                u.setVigencia(true);
                                 u.setCliente(new Cliente(idc));
                                 this.usuarioViewModel.save(u).observe(this, uResponse -> {
                                     if (uResponse.getRpta() == 1) {
