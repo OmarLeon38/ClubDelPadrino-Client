@@ -23,7 +23,7 @@ import java.util.List;
 
 public class CategoriaAdapter extends ArrayAdapter<Categoria> {
 
-    private final String url = ConfigApi.ipOmarLeon + "/api/foto/download/";
+    private final String url = ConfigApi.baseUrlE + "/api/foto/download/";
 
     public CategoriaAdapter(@NonNull Context context, int resource, @NonNull List<Categoria> objects) {
         super(context, resource, objects);

@@ -71,7 +71,7 @@ public class ProductoCarritoAdapter extends RecyclerView.Adapter<ProductoCarrito
             this.tvPrecioPDC.setText(String.format(Locale.ENGLISH, "S/%.2f", dp.getPrecio()));
             int cant = dp.getCantidad();
             this.edtCantidad.setText(Integer.toString(cant));
-            String url = ConfigApi.ipOmarLeon + "/api/foto/download/" + dp.getProducto().getFoto().getFileName();
+            String url = ConfigApi.baseUrlE + "/api/foto/download/" + dp.getProducto().getFoto().getFileName();
             Picasso picasso = new Picasso.Builder(itemView.getContext())
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
                     .build();

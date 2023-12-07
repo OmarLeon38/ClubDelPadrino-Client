@@ -62,7 +62,7 @@ public class DetalleMisComprasAdapter extends RecyclerView.Adapter<DetalleMisCom
         }
 
         public void setItem(final DetallePedido detalle) {
-            String url = ConfigApi.ipOmarLeon + "/api/foto/download/" + detalle.getProducto().getFoto().getFileName();
+            String url = ConfigApi.baseUrlE + "/api/foto/download/" + detalle.getProducto().getFoto().getFileName();
 
             Picasso picasso = new Picasso.Builder(itemView.getContext())
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
